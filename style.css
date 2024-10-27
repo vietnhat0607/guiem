@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ffe6e6, #ffb3b3);
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    position: relative;
+    perspective: 1000px;
+}
+
+.heart {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.heart:hover {
+    transform: scale(1.1);
+}
+
+.heart img {
+    width: 100%;
+    height: 100%;
+}
+
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    text-align: center;
+    min-width: 300px;
+    animation: float 3s infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ff4f4f;
+}
+
+.hearts {
+    font-size: 24px;
+    margin-top: 20px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes float {
+    0% { transform: translate(-50%, -50%) translateY(0px); }
+    50% { transform: translate(-50%, -50%) translateY(-20px); }
+    100% { transform: translate(-50%, -50%) translateY(0px); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+/* ... các style cũ giữ nguyên ... */
+
+.letter {
+    position: absolute;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    text-align: center;
+    min-width: 300px;
+    transition: all 0.5s ease;
+}
+
+/* Vị trí cho từng lá thư */
+#letter1 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+#letter2 { top: 30%; left: 60%; transform: translate(0, 0); }
+#letter3 { top: 40%; left: 70%; transform: translate(0, 0); }
+#letter4 { top: 50%; left: 80%; transform: translate(0, 0); }
+#letter5 { top: 60%; left: 90%; transform: translate(0, 0); }
+
+.letter.active {
+    z-index: 100;
+    animation: popUp 0.5s ease;
+}
+
+@keyframes popUp {
+    0% { transform: scale(0.3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Thêm hiệu ứng hover cho thư */
+.letter:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 182, 193, 0.3);
+}
+
+#final-letter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, #ffe6e6, #fff);
+    border: 2px solid #ff6b6b;
+    z-index: 1000;
+}
+.rectangle {
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.rectangle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);
+}
+/* Thêm vào file CSS hiện tại */
+.next-button {
+    margin-top: 20px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.next-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);
+}
+
+.zoom-text {
+    transition: all 0.5s ease;
+}
+
+.zoom-effect {
+    transform: scale(2.5);
+    opacity: 0;
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 9999;
+}
+
+.page-transition.active {
+    opacity: 1;
+}
